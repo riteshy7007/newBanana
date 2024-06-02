@@ -18,7 +18,7 @@ void Awake(){
 
 
 
-private  static Vector3 GetPosition(){
+public  static Vector3 GetPosition(){
      Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
     Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, instance.layerMask);
     return hit.point;
