@@ -10,6 +10,12 @@ public class PlayerSelectionMachine : MonoBehaviour
     [SerializeField]private Player _selectedPlayer;
     [SerializeField] private LayerMask _playerlayerMask;
    public event EventHandler OnPlayerSelected;
+public static PlayerSelectionMachine instance { get; private set; }
+
+ void Awake()
+{
+    instance = this;
+}
 
 
 
