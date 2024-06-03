@@ -5,14 +5,8 @@ using UnityEngine;
 public class SelectedVisual : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Player _selectedPlayer;
+    [SerializeField] private MeshRenderer _meshRenderer;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
