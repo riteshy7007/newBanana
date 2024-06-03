@@ -4,9 +4,19 @@ using UnityEngine;
 
 public class testing : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private GridSystem  gridSystem;
+    [SerializeField] private Transform debugprefab;
     void Start()
     {
-       new GridSystem(10,10,);
+         gridSystem =new GridSystem(10,10,2f);
+         gridSystem.CreateDebugObjects(debugprefab);
+
+      
+       Debug.Log(new GridPosition(5,7));
+    }
+    void Update()
+    {
+        Debug.Log(gridSystem.GetGridPosition(MouseWorld.GetPosition()));
+        
     }
 }
