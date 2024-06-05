@@ -14,6 +14,10 @@ public static PlayerSelectionMachine instance { get; private set; }
 
  void Awake()
 {
+     if(instance != null){
+        Debug.LogError("There is more than one PlayerSelectionMachine in the scene"+transform+" XX"+instance);
+         Destroy(this);
+     }
     instance = this;
 }
 

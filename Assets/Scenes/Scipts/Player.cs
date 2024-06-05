@@ -6,11 +6,17 @@ public class Player : MonoBehaviour
 {
     private Vector3 _targetPosition;
     [SerializeField] private Animator _animator;
+    private GridPosition _gridPosition;
 
     private  void Awake()
     {
         _targetPosition = transform.position;
     }
+    void Start()
+    {
+       _gridPosition = LevelGrid.levelGridInstance.GetGridPosition(transform.position);
+        LevelGrid.levelGridInstance.SetPlayeratGridPosition(_gridPosition, this);
+    }   
 
     // Update is called once per frame
     void Update()
@@ -29,7 +35,11 @@ public class Player : MonoBehaviour
         }else{
                 _animator.SetBool("IsWalk", false);
             }
-
+        GridPosition newGridPosition = LevelGrid.levelGridInstance.GetGridPosition(transform.position);
+        if (_gridPosition != newGridPosition){
+            LevelGrid.levelGridInstance.PlayerMovedGridPosition(_gridPosition, newGridPosition, this);
+           _gridPosition = newGridPosition;
+        }
         
     
     }
